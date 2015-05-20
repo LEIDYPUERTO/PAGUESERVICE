@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/04/2015 08:11:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.service.logica.mapeos.Soat" table="soat" catalog="pague_services" optimistic-lock="version">
+        <id name="NPlaca" type="string">
+            <column name="N_Placa" length="9" />
+            <generator class="assigned" />
+        </id>
+        <property name="valorVehiculo" type="double">
+            <column name="Valor_Vehiculo" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="fechaPagoSoat" type="date">
+            <column name="Fecha_Pago_Soat" length="10" not-null="true" />
+        </property>
+        <property name="pagoSoat" type="double">
+            <column name="Pago_Soat" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

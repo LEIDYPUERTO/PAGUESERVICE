@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/04/2015 08:11:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.service.logica.mapeos.EGas" table="e_gas" catalog="pague_services" optimistic-lock="version">
+        <composite-id name="id" class="com.service.logica.mapeos.EGasId">
+            <key-property name="reciboGas" type="int">
+                <column name="Recibo_Gas" />
+            </key-property>
+            <key-property name="clienteCedula" type="int">
+                <column name="Cliente_Cedula" />
+            </key-property>
+        </composite-id>
+        <property name="fechaPagoGas" type="date">
+            <column name="Fecha_Pago_Gas" length="10" not-null="true" />
+        </property>
+        <property name="valorGas" type="double">
+            <column name="Valor_Gas" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="detalleGas" type="string">
+            <column name="Detalle_Gas" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
