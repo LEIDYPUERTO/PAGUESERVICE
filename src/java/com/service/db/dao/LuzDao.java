@@ -108,14 +108,14 @@ public class LuzDao{
         return eLuz; 
     }  
 
-    public List<ELuz> obtenListaLuz() throws HibernateException 
+    public List<ELuz> obtenListaLuz(int cedula) throws HibernateException 
     { 
         List<ELuz> listaLuz = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaLuz = sesion.createQuery("from E_Luz").list(); 
+            listaLuz = sesion.createQuery("from ELuz where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 
@@ -129,8 +129,7 @@ public class LuzDao{
         String fecha = "03/25/2016";
         String[] strings = fecha.split("/");
         Date fechaV= new Date(Integer.parseInt(strings[2])-1900, Integer.parseInt(strings[0])-1, Integer.parseInt(strings[1]));
-       
-          //AguaDao daoa = new AguaDao();
+      
           LuzDao daol = new LuzDao();
           ClienteDao daoc = new ClienteDao();
           daol.guardaLuz(new ELuz(new ELuzId(8745685, daoc.obtenCliente(108796548).getCedula()), fechaV, 50000, "calle 87 # 78-45"));

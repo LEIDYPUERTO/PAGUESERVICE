@@ -108,14 +108,14 @@ public class GasDao{
         return eGas; 
     }  
 
-    public List<EGas> obtenListaGas() throws HibernateException 
+    public List<EGas> obtenListaGas(int cedula) throws HibernateException 
     { 
         List<EGas> listaGas = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaGas = sesion.createQuery("from E_Gas").list(); 
+            listaGas = sesion.createQuery("from EGas where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 

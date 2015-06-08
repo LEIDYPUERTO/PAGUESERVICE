@@ -107,7 +107,20 @@ public class BancoDao{
 
         return banco; 
     }  
+    public Banco obtenBancoByCliente(int id) throws HibernateException 
+    { 
+        Banco banco = null;  
+        try 
+        { 
+            iniciaOperacion(); 
+            banco = (Banco) sesion.createQuery("from Banco where Cliente_Cedula = "+id+"").list().get(0); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
 
+        return banco; 
+    }
     public List<Banco> obtenListaBanco() throws HibernateException 
     { 
         List<Banco> listaBanco = null;  
@@ -123,12 +136,12 @@ public class BancoDao{
 
         return listaBanco; 
     }  
-
+    
        public static void main(String[] args) {
         
           BancoDao daob = new BancoDao();
           ClienteDao daoc = new ClienteDao();
           daob.guardaBanco(new Banco(new BancoId(7845692,daoc.obtenCliente(108796548).getCedula()), 80000,"Bancolombia"));
-       
+          daob.eliminaBanco(new Banco(new BancoId(8674569, 1454512), 12154));
     }
 }

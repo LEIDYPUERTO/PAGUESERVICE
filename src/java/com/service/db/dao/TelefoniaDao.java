@@ -108,14 +108,14 @@ public class TelefoniaDao{
         return telefonia; 
     }  
 
-    public List<Telefonia> obtenListaTelefonia() throws HibernateException 
+    public List<Telefonia> obtenListaTelefonia(int cedula) throws HibernateException 
     { 
         List<Telefonia> listaTelefonia = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaTelefonia = sesion.createQuery("from Telefonia").list(); 
+            listaTelefonia = sesion.createQuery("from Telefonia where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 

@@ -108,14 +108,14 @@ public class InternetvDao{
         return internetTv; 
     }  
 
-    public List<InternetTv> obtenListaInternetv() throws HibernateException 
+    public List<InternetTv> obtenListaInternetv(int cedula) throws HibernateException 
     { 
         List<InternetTv> listaInternetv = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaInternetv = sesion.createQuery("from Internet_Tv").list(); 
+            listaInternetv = sesion.createQuery("from InternetTv where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 
@@ -133,7 +133,7 @@ public class InternetvDao{
           InternetvDao daoi = new InternetvDao();
           ClienteDao daoc = new ClienteDao();
         // Agregar  
-        //  daoi.guardaInternetv(new InternetTv(new InternetTvId(77585,daoc.obtenCliente(108796548).getCedula()), fechaV, 35000, "calle sur 45-48"));
+          daoi.guardaInternetv(new InternetTv(new InternetTvId(77585,daoc.obtenCliente(108796548).getCedula()), fechaV, 35000, "calle sur 45-48"));
         // Actualizar
         //  daoi.actualizaInternetv(new InternetTv(new InternetTvId(77585, daoc.obtenCliente(108796548).getCedula()), fechaV, 12000, "comuna 12 3-85"));
         // Eliminar

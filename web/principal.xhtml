@@ -1,0 +1,300 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+    <h:head>
+
+        <title>Principal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="Estilo.css/css.css"/>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#agua").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#aguaMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#aguaMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#luz").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#luzMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#luzMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#gas").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#gasMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#gasMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#internet").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#internetMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#internetMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#soat").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#soatMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#soatMenu").slideUp("");
+            }
+
+            });
+            });
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#predial").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#predialMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#predialMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#comercio").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#comercioMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#comercioMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#banco").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#bancoMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#bancoMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <script type="">
+            $(document).ready(function(){
+
+            $("#servicios").click(function(){
+            if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $("#serviciosMenu").slideDown("");
+            }else{
+            $(this).addClass("active");
+            $("#serviciosMenu").slideUp("");
+            }
+
+            });
+            });    
+        </script>
+        <style>
+            #sidebar {
+                list-style: none;
+                padding: 0;
+                width: 100%;
+                padding-top: 150px;
+            }
+            #sidebar > li,
+            #sidebar > li > button{
+                width: 100%;
+            }
+            #aguaMenu{
+
+                display: none;
+            }  
+            #luzMenu{
+                display: none;
+            }
+            #gasMenu{
+                display: none;
+            }
+            #internetMenu{
+                display: none;
+            }
+            #telefonoMenu{
+                display: none;
+            }
+            #soatMenu{
+                display: none;
+            }
+            #predialMenu{
+                display: none;
+            }
+            #comercioMenu{
+                display: none;
+            }
+            #bancoMenu{
+                display: none;
+            }
+            #serviciosMenu{
+                display: none;
+            }
+        </style>
+    </h:head>
+    <body>
+        <div class="contenido">
+            <table width="100%">
+                <tr>
+                    <td width="30%">
+                        <ul id="sidebar">
+                            
+                            <li  id="agua">  <img src="imagenes/Agua.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="aguaMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_agua.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_agua.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="luz">  <img src="imagenes/Luz.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="luzMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_luz.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_luz.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="gas">  <img src="imagenes/Gas.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="gasMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_gas.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_gas.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="internet">  <img src="imagenes/Internet.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="internetMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_internet.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/Mostrar_internet.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="telefono">  <img src="imagenes/Telefonia.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="telefonoMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_telefonia.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_telefonia.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="soat">  <img src="imagenes/Soat.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="soatMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_agua.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_agua.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="predial">  <img src="imagenes/Predial.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="predialMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_agua.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_agua.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="comercio">  <img src="imagenes/Comercio.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="comercioMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_agua.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_agua.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="banco">  <img src="imagenes/Banco.jpg" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="bancoMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_agua.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_agua.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+                            <li  id="servicios">  <img src="imagenes/pague_servicios.png" width="70" height="70" style="display: block;margin:0 auto;"/><ul id="serviciosMenu">
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/recibo_agua.xhtml"> <label>Ingresar Recibo </label> </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/Pague_Service2.0/faces/mostrar_agua.xhtml"> <label>Mostrar Recibo</label> </a>
+                                    </li>
+                                </ul></li>
+
+                        </ul>
+                    </td>
+                    <td>
+                        <div style="position: absolute;top:0;width: 40%;">
+                            <h2 style="text-align: center">Bienvenido</h2>
+                            <img src="imagenes/pague_service.jpg" width="80px" style="display: block;margin:0 auto;"/>
+                            <h2 style="text-align: center">Consulte su recibos de</h2>
+                            <div id="agua">
+                                <h3 style="text-align: center">Enunciado</h3>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td width="20%">
+                        <input type="date"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

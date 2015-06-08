@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+    <h:head>
+        <title>Agregar Recibo Telefonia</title>
+        <link rel="stylesheet" href="Estilo.css/css.css"/>
+        <link rel="stylesheet" href="Estilo.css/css/font-awesome.min.css"/>
+
+        <style>
+            #ajaxValidatorForm {
+                max-width: 250px;
+                margin: 0 auto;
+                min-width: 300px !important;
+                margin-top: 50px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="contenido">
+        <img src="imagenes/Telefonia.jpg" width="150" height="150" style="margin: 0 auto;display: block"/>
+        <h:form  id="ajaxValidatorForm" >
+            <rich:panel>
+                <f:facet name="header">
+                    <h:outputText value="Datos para registrar un recibo de Telefonia:" />
+                </f:facet>
+                <h:panelGrid columns="3">
+
+                    <h:outputText value="Numero de Recibo:" />
+                    <h:inputText value="#{guardar_telefonia_beans.recibo_telefonia}" id="telefonia" required="true">
+                        <rich:validator />
+                       
+                    </h:inputText>
+                    <rich:message for="telefonia"/>
+
+                    <h:outputText value="Dirrecion" />
+                    <h:inputText value="#{guardar_telefonia_beans.detalle_telefonia}" id="dirrecion" required="true">
+                        <rich:validator />
+
+                    </h:inputText>
+                    <rich:message for="dirrecion" />
+
+                </h:panelGrid>
+            </rich:panel>
+           
+            <a4j:commandButton value="Guardar" type="submit" actionListener="#{guardar_telefonia_beans.guardarTelefonia(actionEvent)}" style="margin-right: 50px"></a4j:commandButton>
+            
+            <a4j:commandButton value="Cancelar" onclick="location.href = 'http://localhost:8080/Pague_Service2.0/faces/index.xhtml'" ></a4j:commandButton>
+            
+        </h:form>
+        </div>
+    </h:body>
+</ui:composition>

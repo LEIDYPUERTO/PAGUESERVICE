@@ -108,14 +108,14 @@ public class AguaDao{
         return eAgua; 
     }  
 
-    public List<EAgua> obtenListaLuz() throws HibernateException 
+    public List<EAgua> obtenListaAgua(int cedula) throws HibernateException 
     { 
         List<EAgua> listaAgua = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaAgua = sesion.createQuery("from E_Agua").list(); 
+            listaAgua = sesion.createQuery("from EAgua where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 
@@ -133,8 +133,9 @@ public class AguaDao{
           AguaDao daoa = new AguaDao();
           ClienteDao daoc = new ClienteDao();
         // Agregar  
-        //  daoa.guardaAgua(new EAgua(new EAguaId(78756424,daoc.obtenCliente(108796548).getCedula()), fechaV, 7655977, "calle 78 # 13-145"));
-        // Actualizar
+         // daoa.guardaAgua(new EAgua(new EAguaId(78756424,daoc.obtenCliente(108796548).getCedula()), fechaV, 7655977, "calle 78 # 13-145"));
+       daoa.obtenListaAgua(1049627764);
+          // Actualizar
         //  daoa.actualizaAgua(new EAgua(new EAguaId(78756424, daoc.obtenCliente(108796548).getCedula()), fechaV,120000, "calle 78 # 13-145"));
         // Eliminar
         //  daoa.eliminaAgua(new EAgua(new EAguaId(78756424, 108796548), fechaV, 0, fecha));

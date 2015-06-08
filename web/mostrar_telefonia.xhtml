@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" 
+                xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+
+    <h:head>
+        <title>Mostrar Recibos de Telefonia</title>
+        <link rel="stylesheet" href="Estilo.css/css.css"/>
+        <link rel="stylesheet" href="Estilo.css/css/font-awesome.min.css"/>
+        <!--  <script src="jquery/external/jquery/jquery.js"></script> -->
+
+        <style>
+            #ajaxValidatorForm {
+                max-width: 400px;
+                margin: 0 auto;
+                min-width: 600px !important;
+                margin-top: 50px;
+            }
+        </style>
+        
+    </h:head>
+    <h:body>
+        <div class="contenido">
+            <img src="imagenes/Telefonia.jpg" width="150" height="150" style="margin: 0 auto;display: block"/>
+        
+    <a4j:status onstart="#{rich:component('statPane')}.show()" onstop="#{rich:component('statPane')}.hide()" /> 
+    
+    <h:form id="ajaxValidatorForm">
+        <rich:dataTable value="#{mostrarReciboTelefonia.allItems}" var="telefonia" iterationStatusVar="it" id="table" rows="10">
+            <rich:column>
+                <f:facet name="header">#</f:facet>
+                    #{it.index}
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">Numero_Recibo</f:facet>
+                <h:outputText value="#{telefonia.id.reciboTelefono}" />
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">Fecha pago</f:facet>
+                <h:outputText value="#{telefonia.fechaPagoTelefonia}" />
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">Valor</f:facet>
+                <h:outputText value="#{telefonia.valorTelefonia}" />
+            </rich:column>
+            <rich:column>
+                <f:facet name="header">Detalle</f:facet>
+                <h:outputText value="#{telefonia.detalleTelefonia}" />
+            </rich:column>
+            <rich:column>
+                <a4j:commandLink styleClass="no-decor" execute="@this" render="prueba"
+                    oncomplete="#{rich:component('confirmPane')}.show()">
+                    <h:graphicImage value="/imagenes/eliminar.jpg" width="25" height="25" alt="delete" />
+                    <a4j:param value="#{it.index}" assignTo="#{mostrarReciboTelefonia.currentTelefoniaIndex}" />
+                </a4j:commandLink>
+                <a4j:commandLink styleClass="no-decor" render="editGrid" execute="@this"
+                    oncomplete="#{rich:component('editPane')}.show()">
+                    <h:graphicImage value="/imagenes/credit.png" width="30" height="30" alt="edit" />
+                    <a4j:param value="#{it.index}" assignTo="#{mostrarReciboTelefonia.currentTelefoniaIndex}" />
+                    
+                </a4j:commandLink>
+            </rich:column>
+            <f:facet name="footer">
+                <rich:dataScroller page="#{mostrarReciboTelefonia.page}" fastStep="3"/>
+            </f:facet>
+        </rich:dataTable>
+
+        <rich:popupPanel id="statPane" autosized="true">
+            <!--  <h:graphicImage value="/images/ai.gif" alt="ai" /> -->
+            Please wait...
+        </rich:popupPanel>
+        <a4j:jsFunction name="remove" action="#{mostrarReciboTelefonia.remove()}" render="table" execute="@this"
+            oncomplete="#{rich:component('confirmPane')}.hide();" />
+        
+        <a4j:jsFunction name="pagar" action="#{mostrarReciboTelefonia.pagar()}" render="table" execute="@this"
+            oncomplete="#{rich:component('editPane')}.hide();" />
+        
+ 
+        <rich:popupPanel id="confirmPane" autosized="false">
+            Deseas realmente eliminar este recibo?
+            <a4j:commandButton value="Cancel" onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+            <a4j:commandButton value="Delete" onclick="remove(); return false;" />
+        </rich:popupPanel>
+         <rich:popupPanel id="editPane" autosized="false">
+            Deseas pagar este recibo?
+            <a4j:commandButton value="Cancel" onclick="#{rich:component('editPane')}.hide(); return false;" />
+            <a4j:commandButton value="Pagar" onclick="pagar(); return false;" />
+        </rich:popupPanel>
+    </h:form>
+    </div>
+    </h:body>
+</ui:composition>

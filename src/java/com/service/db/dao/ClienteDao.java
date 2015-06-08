@@ -124,7 +124,7 @@ public class ClienteDao{
       // actualizar
       // dao.actualizacliente(new Cliente(1077852654, "Juana", "F", "Pera"));
       // guardar
-        dao.guardaCliente(new Cliente(108554, "Pedro llll","M", "Manzana"));
-       
+        //dao.guardaCliente(new Cliente(108554, "Pedro llll","M", "Manzana"));
+       dao.obtenListaClientes();
     }
 }
