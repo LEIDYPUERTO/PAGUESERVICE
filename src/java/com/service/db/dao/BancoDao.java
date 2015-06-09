@@ -121,14 +121,14 @@ public class BancoDao{
 
         return banco; 
     }
-    public List<Banco> obtenListaBanco() throws HibernateException 
+    public List<Banco> obtenListaBanco(int  cedula) throws HibernateException 
     { 
         List<Banco> listaBanco = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaBanco = sesion.createQuery("from Banco").list(); 
+            listaBanco = sesion.createQuery("from Banco where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 

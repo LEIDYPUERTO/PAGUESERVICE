@@ -109,14 +109,14 @@ public class DetalleSoatDao{
         return detalleSoat; 
     }  
 
-    public List<DetalleSoat> obtenListaDetalleSoat() throws HibernateException 
+    public List<DetalleSoat> obtenListaDetalleSoat(int cedula) throws HibernateException 
     { 
         List<DetalleSoat> listaDetalleSoat = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaDetalleSoat = sesion.createQuery("from Detalle_Soat").list(); 
+            listaDetalleSoat = sesion.createQuery("from DetalleSoat where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 

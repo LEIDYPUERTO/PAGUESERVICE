@@ -118,7 +118,21 @@ public class ComercioDao{
         }  
 
         return listaComercio; 
-    }  
+    } 
+    public List<CamaraComercio> obtenListacomercioFechas(Date date)  throws HibernateException {
+          List<CamaraComercio> listaComercio = null;  
+
+        try 
+        { 
+            iniciaOperacion(); 
+            listaComercio = sesion.createQuery("from CamaraComercio where Fecha_Pago_Comercio < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaComercio; 
+    }
     public static void main(String[] args) {
            //mes dia año
         String fecha = "03/22/2015";

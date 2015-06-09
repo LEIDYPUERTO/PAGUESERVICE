@@ -122,7 +122,21 @@ public class GasDao{
         }  
 
         return listaGas; 
-    }  
+    }
+    public List<EGas> obtenListaGasFechas(Date date)  throws HibernateException {
+          List<EGas> listaGas = null;  
+
+        try 
+        { 
+            iniciaOperacion(); 
+            listaGas = sesion.createQuery("from EGas where Fecha_Pago_Gas < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaGas; 
+    }
 
        public static void main(String[] args) {
            //mes dia año

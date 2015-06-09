@@ -122,7 +122,21 @@ public class InternetvDao{
         }  
 
         return listaInternetv; 
-    }  
+    }
+    public List<InternetTv> obtenListaInternetFechas(Date date)  throws HibernateException {
+          List<InternetTv> listaInternet = null;  
+
+        try 
+        { 
+            iniciaOperacion(); 
+            listaInternet = sesion.createQuery("from InternetTv where Fecha_Pago_Internet < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaInternet; 
+    }
 
        public static void main(String[] args) {
            //mes dia año

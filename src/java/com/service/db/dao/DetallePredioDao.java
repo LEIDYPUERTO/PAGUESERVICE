@@ -109,14 +109,14 @@ public class DetallePredioDao{
         return detallePredio; 
     }  
 
-    public List<DetallePredio> obtenListaDetallePredio() throws HibernateException 
+    public List<DetallePredio> obtenListaDetallePredio(int cedula) throws HibernateException 
     { 
         List<DetallePredio> listaDetallePredio = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaDetallePredio = sesion.createQuery("from Detalle_Predio").list(); 
+            listaDetallePredio = sesion.createQuery("from DetallePredio where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 

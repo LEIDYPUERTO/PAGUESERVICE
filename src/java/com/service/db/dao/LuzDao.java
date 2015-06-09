@@ -6,6 +6,7 @@ package com.service.db.dao;
 import com.service.logica.mapeos.ELuz;
 import com.service.logica.mapeos.ELuzId;
 import com.service.persistencia.HibernateUtil;
+import java.util.Calendar;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -44,6 +45,7 @@ public class LuzDao{
            
         } catch (HibernateException he) 
         { 
+           // id = null;
             manejaExcepcion(he); 
             throw he; 
         } finally 
@@ -107,7 +109,20 @@ public class LuzDao{
 
         return eLuz; 
     }  
+    public List<ELuz> obtenListaLuzFechas(Date date)  throws HibernateException {
+          List<ELuz> listaLuz = null;  
 
+        try 
+        { 
+            iniciaOperacion(); 
+            listaLuz = sesion.createQuery("from ELuz where Fecha_Pago_Luz < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaLuz; 
+    }
     public List<ELuz> obtenListaLuz(int cedula) throws HibernateException 
     { 
         List<ELuz> listaLuz = null;  
@@ -132,9 +147,17 @@ public class LuzDao{
       
           LuzDao daol = new LuzDao();
           ClienteDao daoc = new ClienteDao();
-          daol.guardaLuz(new ELuz(new ELuzId(8745685, daoc.obtenCliente(108796548).getCedula()), fechaV, 50000, "calle 87 # 78-45"));
+          //daol.guardaLuz(new ELuz(new ELuzId(8745685, daoc.obtenCliente(108796548).getCedula()), fechaV, 50000, "calle 87 # 78-45"));
           //daoa.guardaAgua(new EAgua(new EAguaId(98756424,daoc.obtenCliente(108796548).getCedula()), fechaV, 7655977, "calle 5 # 3-45"));
+         Calendar sumfecha = Calendar.getInstance();
+        int dia=sumfecha.get(Calendar.DAY_OF_MONTH);
+        int mes=sumfecha.get(Calendar.MONTH)+1;
+        int ano=sumfecha.get(Calendar.YEAR);
+        fechaV = new java.sql.Date(ano -1900,mes- 1,dia);
         
-       
+         List<ELuz> daos = daol.obtenListaLuzFechas(fechaV);
+         for(ELuz luz : daos){
+             System.out.println(luz.getValorLuz());
+         }
     }
 }

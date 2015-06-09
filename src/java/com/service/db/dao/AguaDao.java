@@ -123,6 +123,21 @@ public class AguaDao{
 
         return listaAgua; 
     }  
+    
+    public List<EAgua> obtenListaAguaFechas(Date date)  throws HibernateException {
+          List<EAgua> listaAgua = null;  
+
+        try 
+        { 
+            iniciaOperacion(); 
+            listaAgua = sesion.createQuery("from EAgua where Fecha_Pago_Agua < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaAgua; 
+    }
 
        public static void main(String[] args) {
            //mes dia año

@@ -122,7 +122,21 @@ public class TelefoniaDao{
         }  
 
         return listaTelefonia; 
-    }  
+    }
+    public List<Telefonia> obtenListaTelefonoFechas(Date date)  throws HibernateException {
+          List<Telefonia> listaTelefonia = null;  
+
+        try 
+        { 
+            iniciaOperacion(); 
+            listaTelefonia = sesion.createQuery("from Telefonia where Fecha_Pago_Telefonia < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaTelefonia; 
+    }
 
        public static void main(String[] args) {
            //mes dia año

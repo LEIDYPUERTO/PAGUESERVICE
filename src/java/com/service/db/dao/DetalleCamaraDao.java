@@ -109,14 +109,14 @@ public class DetalleCamaraDao{
         return detalleCamara; 
     }  
 
-    public List<DetalleCamara> obtenListaDetalleComercio() throws HibernateException 
+    public List<DetalleCamara> obtenListaDetalleComercio(int cedula) throws HibernateException 
     { 
         List<DetalleCamara> listaDetalleComercio = null;  
 
         try 
         { 
             iniciaOperacion(); 
-            listaDetalleComercio = sesion.createQuery("from Detalle_Camara").list(); 
+            listaDetalleComercio = sesion.createQuery("from DetalleCamara where Cliente_Cedula = "+cedula+"").list(); 
         } finally 
         { 
             sesion.close(); 

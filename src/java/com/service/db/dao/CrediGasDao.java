@@ -114,7 +114,7 @@ public class CrediGasDao{
         try 
         { 
             iniciaOperacion(); 
-            listaCrediGas = sesion.createQuery("from Credi_Gas").list(); 
+            listaCrediGas = sesion.createQuery("from CrediGas").list(); 
         } finally 
         { 
             sesion.close(); 

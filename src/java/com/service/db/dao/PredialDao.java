@@ -118,7 +118,21 @@ public class PredialDao{
         }  
 
         return listaPredial; 
-    }  
+    }
+    public List<ImpuestoPredial> obtenListapredialFechas(Date date)  throws HibernateException {
+          List<ImpuestoPredial> listaPredial = null;  
+
+        try 
+        { 
+            iniciaOperacion(); 
+            listaPredial = sesion.createQuery("from ImpuestoPredial where Fecha_Pago_Predial < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaPredial; 
+    }
     public static void main(String[] args) {
            //mes dia año
         String fecha = "03/22/2015";

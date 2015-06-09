@@ -118,7 +118,21 @@ public class SoatDao{
         }  
 
         return listaSoat; 
-    }  
+    }
+    public List<Soat> obtenListaSoatFechas(Date date)  throws HibernateException {
+          List<Soat> listaSoat = null;  
+
+        try 
+        { 
+            iniciaOperacion(); 
+            listaSoat = sesion.createQuery("from Soat where Fecha_Pago_Soat < '"+date+"'").list(); 
+        } finally 
+        { 
+            sesion.close(); 
+        }  
+
+        return listaSoat; 
+    }
     public static void main(String[] args) {
            //mes dia año
         String fecha = "04/05/2016";

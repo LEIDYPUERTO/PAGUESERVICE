@@ -115,7 +115,7 @@ public class CrediLuzDao{
         try 
         { 
             iniciaOperacion(); 
-            listaCrediLuz = sesion.createQuery("from Credito_Luz").list(); 
+            listaCrediLuz = sesion.createQuery("from CreditoLuz").list(); 
         } finally 
         { 
             sesion.close(); 

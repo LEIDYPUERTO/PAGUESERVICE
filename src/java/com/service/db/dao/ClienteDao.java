@@ -42,6 +42,7 @@ public class ClienteDao{
            transaccion.commit(); 
            
         } catch (HibernateException he) { 
+            id = -1000;
             manejaExcepcion(he); 
             throw he; 
         } finally { 
