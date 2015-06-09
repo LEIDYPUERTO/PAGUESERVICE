@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pague_services?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="com/service/logica/mapeos/InternetTv.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/DetalleSoat.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/Cliente.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/Telefonia.hbm.xml"/>
+    <mapping class="" file="" jar="" package="" resource="com/service/logica/mapeos/EAgua.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/ImpuestoPredial.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/CrediGas.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/CreditoLuz.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/DetallePredio.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/EGas.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/Soat.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/Banco.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/DetalleCamara.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/ELuz.hbm.xml"/>
+    <mapping resource="com/service/logica/mapeos/CamaraComercio.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

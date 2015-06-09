@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="pague_services"/>
+  <table-filter match-name="impuesto_predial"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="credi_gas"/>
+  <table-filter match-name="e_luz"/>
+  <table-filter match-name="e_gas"/>
+  <table-filter match-name="soat"/>
+  <table-filter match-name="detalle_camara"/>
+  <table-filter match-name="camara_comercio"/>
+  <table-filter match-name="banco"/>
+  <table-filter match-name="telefonia"/>
+  <table-filter match-name="internet_tv"/>
+  <table-filter match-name="e_agua"/>
+  <table-filter match-name="detalle_soat"/>
+  <table-filter match-name="credito_luz"/>
+  <table-filter match-name="detalle_predio"/>
+</hibernate-reverse-engineering>

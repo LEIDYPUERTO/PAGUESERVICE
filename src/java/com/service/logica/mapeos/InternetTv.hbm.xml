@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/04/2015 08:11:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.service.logica.mapeos.InternetTv" table="internet_tv" catalog="pague_services" optimistic-lock="version">
+        <composite-id name="id" class="com.service.logica.mapeos.InternetTvId">
+            <key-property name="reciboInternet" type="int">
+                <column name="Recibo_Internet" />
+            </key-property>
+            <key-property name="clienteCedula" type="int">
+                <column name="Cliente_Cedula" />
+            </key-property>
+        </composite-id>
+        <property name="fechaPagoInternet" type="date">
+            <column name="Fecha_Pago_Internet" length="10" not-null="true" />
+        </property>
+        <property name="valorInternet" type="double">
+            <column name="Valor_Internet" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="detallerInternet" type="string">
+            <column name="Detaller_Internet" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/04/2015 08:11:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.service.logica.mapeos.Telefonia" table="telefonia" catalog="pague_services" optimistic-lock="version">
+        <composite-id name="id" class="com.service.logica.mapeos.TelefoniaId">
+            <key-property name="reciboTelefono" type="int">
+                <column name="Recibo_Telefono" />
+            </key-property>
+            <key-property name="clienteCedula" type="int">
+                <column name="Cliente_Cedula" />
+            </key-property>
+        </composite-id>
+        <property name="fechaPagoTelefonia" type="date">
+            <column name="Fecha_Pago_Telefonia" length="10" not-null="true" />
+        </property>
+        <property name="valorTelefonia" type="int">
+            <column name="Valor_Telefonia" not-null="true" />
+        </property>
+        <property name="detalleTelefonia" type="string">
+            <column name="Detalle_Telefonia" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+
+    <h:head>
+        <title>Registrar Cliente</title>
+        <link rel="stylesheet" href="Estilo.css/css.css"/>
+        <link rel="stylesheet" href="Estilo.css/css/font-awesome.min.css"/>
+
+        <style>
+            #ajaxValidatorForm {
+                max-width: 400px;
+                margin: 0 auto;
+                min-width: 600px !important;
+                margin-top: 50px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="contenido">
+        <img src="imagenes/user-add-icon.png" width="150" height="150" style="margin: 0 auto;display: block"/>
+        <h:form  id="ajaxValidatorForm" >
+            <rich:panel>
+                <f:facet name="header">
+                    <h:outputText value="Datos Para el Registro de cliente:" />
+                </f:facet>
+                <h:panelGrid columns="6">
+
+                    <h:outputText value="Nombre Completo:" />
+                    <h:inputText value="#{cliente_beans.nombre}" id="nombre"  required="true">
+                        <rich:validator />
+
+                    </h:inputText>
+                    <rich:message for="Nombre Completo" />
+
+                    <h:outputText value="Cedula:" />
+                    <h:inputText value="#{cliente_beans.cedula}" id="cedula" required="true">
+                        <rich:validator />
+
+
+                    </h:inputText>
+                    <rich:message for="cedula"/>
+
+                    <h:outputText value="Genero:" />
+                    <h:inputText value="#{cliente_beans.genero}" id="genero" required="true">
+                        <rich:validator />
+
+                    </h:inputText>
+                    <rich:message for="genero" />
+
+                    <h:outputText value="Password:" />
+                    <h:inputText value="#{cliente_beans.password}"  id="password" required="true">
+                        <rich:validator />
+
+                    </h:inputText>
+                    <rich:message for="Password" />
+                    
+                    <h:outputText value="Numero de cuenta:" />
+                    <h:inputText value="#{cliente_beans.cuenta}" id="cuenta" required="true">
+                        <rich:validator />
+
+
+                    </h:inputText>
+                    <rich:message for="cuenta"/>
+
+
+                </h:panelGrid>
+            </rich:panel>
+
+            <a4j:commandButton render="guardarcliente" value="Guardar" actionListener="#{cliente_beans.agregarCliente(actionEvent)}"></a4j:commandButton>
+            <a4j:commandButton value="Cancelar" onclick="location.href = 'http://localhost:8080/Pague_Service2.0/faces/index.xhtml'" ></a4j:commandButton>
+            <rich:notifyStack id="guardar" position="topLeft" direction="vertical" method="first" />
+
+            <rich:notify id="guardarcliente" stack="guardar" escape="false"/>
+        </h:form>
+        </div>
+    </h:body>
+</ui:composition>

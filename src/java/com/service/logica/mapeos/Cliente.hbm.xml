@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/04/2015 08:11:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.service.logica.mapeos.Cliente" table="cliente" catalog="pague_services" optimistic-lock="version">
+        <id name="cedula" type="int">
+            <column name="Cedula" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" not-null="true" />
+        </property>
+        <property name="genero" type="string">
+            <column name="Genero" length="1" not-null="true" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="Contrasena" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

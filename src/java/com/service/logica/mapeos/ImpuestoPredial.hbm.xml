@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/04/2015 08:11:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.service.logica.mapeos.ImpuestoPredial" table="impuesto_predial" catalog="pague_services" optimistic-lock="version">
+        <id name="NPredio" type="int">
+            <column name="N_Predio" />
+            <generator class="assigned" />
+        </id>
+        <property name="fechaPagoPredial" type="date">
+            <column name="Fecha_Pago_Predial" length="10" not-null="true" />
+        </property>
+        <property name="valorPredio" type="double">
+            <column name="Valor_Predio" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="impuestoPredio" type="double">
+            <column name="Impuesto_Predio" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
